@@ -8,9 +8,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// This is a place holder for the initial application state.
-var state = [];
-
 // This grabs the DOM element to be used to mount React components.
 var contentNode = document.getElementById("contents");
 
@@ -20,43 +17,81 @@ var Menu = function (_React$Component) {
   function Menu() {
     _classCallCheck(this, Menu);
 
-    return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this));
+
+    _this.state = { menu: true };
+    return _this;
   }
 
   _createClass(Menu, [{
+    key: "setMenu",
+    value: function setMenu(bool) {
+      this.setState({ menu: bool });
+      console.log("Menu: " + this.state.menu);
+    }
+  }, {
     key: "render",
     value: function render() {
-      return React.createElement(
-        "div",
-        null,
-        React.createElement(
-          "a",
-          { href: "game.html" },
+      var _this2 = this;
+
+      if (this.state.menu === true) {
+        return React.createElement(
+          "div",
+          null,
           React.createElement(
-            "h2",
-            null,
-            "New Game"
-          )
-        ),
-        React.createElement(
-          "a",
-          { href: "" },
+            "a",
+            { href: "game.html" },
+            React.createElement(
+              "h2",
+              null,
+              "New Game"
+            )
+          ),
           React.createElement(
-            "h2",
-            null,
-            "Load Game"
+            "a",
+            { href: "#" },
+            React.createElement(
+              "h2",
+              null,
+              "Load Game"
+            )
+          ),
+          React.createElement(
+            "a",
+            { href: "#", onClick: function onClick() {
+                return _this2.setMenu(false);
+              } },
+            React.createElement(
+              "h2",
+              null,
+              "Options"
+            )
           )
-        ),
-        React.createElement(
-          "a",
-          { href: "" },
+        );
+      } else {
+        return React.createElement(
+          "div",
+          null,
           React.createElement(
             "h2",
             null,
             "Options"
+          ),
+          React.createElement(
+            "p",
+            null,
+            "Set your options or whatever."
+          ),
+          React.createElement("br", null),
+          React.createElement(
+            "a",
+            { href: "#", onClick: function onClick() {
+                return _this2.setMenu(true);
+              } },
+            "Back to Menu"
           )
-        )
-      );
+        );
+      }
     }
   }]);
 

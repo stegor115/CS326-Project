@@ -1,20 +1,36 @@
-// This is a place holder for the initial application state.
-const state = [
-
-];
-
 // This grabs the DOM element to be used to mount React components.
 var contentNode = document.getElementById("contents");
 
 class Menu extends React.Component {
+  constructor(){
+    super();
+    this.state = { menu: true };
+  }
+
+  setMenu(bool){
+    this.setState({ menu: bool });
+    console.log("Menu: " + this.state.menu);
+  }
+
   render() {
-    return (
-      <div>
-        <a href="game.html"><h2>New Game</h2></a>
-        <a href=""><h2>Load Game</h2></a>
-        <a href="#" onClick={}><h2>Options</h2></a>
-      </div>
-    );
+    if(this.state.menu === true){
+      return (
+        <div>
+          <a href="game.html"><h2>New Game</h2></a>
+          <a href="#"><h2>Load Game</h2></a>
+          <a href="#" onClick={ () => this.setMenu(false) }><h2>Options</h2></a>
+        </div>
+      );
+    }else{
+      return (
+        <div>
+          <h2>Options</h2>
+          <p>Set your options or whatever.</p>
+          <br />
+          <a href="#" onClick={ () => this.setMenu(true) }>Back to Menu</a>
+        </div>
+      );
+    }
   }
 }
 
