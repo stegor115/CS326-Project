@@ -14,34 +14,57 @@ var state = [];
 // This grabs the DOM element to be used to mount React components.
 var contentNode = document.getElementById("contents");
 
-var MyComponent = function (_React$Component) {
-  _inherits(MyComponent, _React$Component);
+var EndScreen = function (_React$Component) {
+  _inherits(EndScreen, _React$Component);
 
-  function MyComponent() {
-    _classCallCheck(this, MyComponent);
+  function EndScreen() {
+    _classCallCheck(this, EndScreen);
 
-    return _possibleConstructorReturn(this, (MyComponent.__proto__ || Object.getPrototypeOf(MyComponent)).call(this));
+    return _possibleConstructorReturn(this, (EndScreen.__proto__ || Object.getPrototypeOf(EndScreen)).apply(this, arguments));
   }
 
-  _createClass(MyComponent, [{
+  _createClass(EndScreen, [{
     key: "render",
     value: function render() {
       return React.createElement(
         "div",
         null,
         React.createElement(
-          "h1",
+          "div",
           null,
-          "My View 02"
+          React.createElement(
+            "h1",
+            null,
+            "E N D  C R E D I T S"
+          ),
+          React.createElement(
+            "a",
+            { href: "menu.html" },
+            React.createElement(
+              "h2",
+              null,
+              "Play again?"
+            )
+          ),
+          React.createElement(
+            "button",
+            { onclick: "myFunction()" },
+            "Show game statistics"
+          ),
+          React.createElement(
+            "h1",
+            { id: "stats" },
+            "S T A T S"
+          )
         )
       );
     }
   }]);
 
-  return MyComponent;
+  return EndScreen;
 }(React.Component);
 
 // This renders the JSX component inside the content node:
 
 
-ReactDOM.render(React.createElement(MyComponent, null), contentNode);
+ReactDOM.render(React.createElement(EndScreen, null), contentNode);

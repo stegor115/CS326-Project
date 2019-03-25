@@ -6,19 +6,20 @@ const state = [
 // This grabs the DOM element to be used to mount React components.
 var contentNode = document.getElementById("contents");
 
-class MyComponent extends React.Component {
-  constructor() {
-    super();
-  }
-
+class EndScreen extends React.Component {
   render() {
     return (
       <div>
-        <h1>My View 02</h1>
+        <div>
+        <h1>E N D  C R E D I T S</h1>
+        <a href="menu.html"><h2>Play again?</h2></a>
+        <button onclick="myFunction()">Show game statistics</button>
+        <h1 id = "stats">S T A T S</h1> 
+        </div>
       </div>
     );
   }
 }
 
 // This renders the JSX component inside the content node:
-ReactDOM.render(<MyComponent />, contentNode);
+ReactDOM.render(<EndScreen />, contentNode);

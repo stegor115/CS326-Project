@@ -4,6 +4,16 @@
 <head>
     <meta charset="UTF-8" />
     <title>View 01</title>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("stats");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+            x.style.display = "none";
+        }
+}
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.13.0/polyfill.js"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.js">
     </script>
@@ -22,9 +32,10 @@
     </style>
 </head>
 
-<body>
+<body style="text-align: center; width:960px; margin: auto;">
     <!-- this is where our component will appear -->
     <div id="contents"></div>
+    <p>&copy; 2019</p>
     <script src="/End.js"></script>
 </body>
 
