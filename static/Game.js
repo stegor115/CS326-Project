@@ -29,10 +29,13 @@ var MyComponent = function (_React$Component) {
       return React.createElement(
         "div",
         null,
+        React.createElement("img", { src: "img/sample.jpg", alt: "Sample image2", width: "960", height: "400" }),
         React.createElement(
-          "h1",
-          null,
-          "My View 03"
+          "div",
+          { "class": "solid" },
+          "Terminal",
+          React.createElement("br", null),
+          React.createElement("input", { type: "text" })
         )
       );
     }

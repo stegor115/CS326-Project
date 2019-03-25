@@ -14,7 +14,12 @@ class MyComponent extends React.Component {
   render() {
     return (
       <div>
-        <h1>My View 03</h1>
+        <img src="img/sample.jpg" alt="Sample image2" width="960" height="400"></img>
+        <div class="solid">
+          Terminal
+          <br></br>
+          <input type="text"></input>
+        </div>
       </div>
     );
   }
