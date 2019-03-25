@@ -12,7 +12,7 @@ class Menu extends React.Component {
       <div>
         <a href="game.html"><h2>New Game</h2></a>
         <a href=""><h2>Load Game</h2></a>
-        <a href=""><h2>Options</h2></a>
+        <a href="#" onClick={}><h2>Options</h2></a>
       </div>
     );
   }
@@ -22,7 +22,7 @@ class Title extends React.Component {
   render() {
     return (
       <div>
-        <h1>S a m p l e T e x t</h1>
+        <h1>UMass CICS: Ultimate Text Adventure</h1>
       </div>
     );
   }

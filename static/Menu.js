@@ -81,7 +81,7 @@ var Title = function (_React$Component2) {
         React.createElement(
           "h1",
           null,
-          "S a m p l e T e x t"
+          "UMass CICS: Ultimate Text Adventure"
         )
       );
     }
