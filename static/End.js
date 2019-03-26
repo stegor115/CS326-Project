@@ -8,22 +8,37 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// This is a place holder for the initial application state.
-var state = [];
-
 // This grabs the DOM element to be used to mount React components.
 var contentNode = document.getElementById("contents");
 
 var EndScreen = function (_React$Component) {
   _inherits(EndScreen, _React$Component);
 
-  function EndScreen() {
+  function EndScreen(props) {
     _classCallCheck(this, EndScreen);
 
-    return _possibleConstructorReturn(this, (EndScreen.__proto__ || Object.getPrototypeOf(EndScreen)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (EndScreen.__proto__ || Object.getPrototypeOf(EndScreen)).call(this, props));
+
+    _this.state = {
+      shown: false
+    };
+    _this.onClick = _this.onClick.bind(_this);
+    return _this;
   }
 
   _createClass(EndScreen, [{
+    key: "onClick",
+    value: function onClick(e) {
+      e.preventDefault();
+      this.setState(function (state) {
+        var newShown = !state.shown;
+        console.log(newShown);
+        return {
+          shown: newShown
+        };
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return React.createElement(
@@ -48,20 +63,59 @@ var EndScreen = function (_React$Component) {
           ),
           React.createElement(
             "button",
-            { onclick: "myFunction()" },
-            "Show game statistics"
+            { onClick: this.onClick },
+            "Want to see your stats?"
           ),
-          React.createElement(
-            "h1",
-            { id: "stats" },
-            "S T A T S"
-          )
+          React.createElement(StatsWindow, { shown: this.state.shown })
         )
       );
     }
   }]);
 
   return EndScreen;
+}(React.Component);
+
+var StatsWindow = function (_React$Component2) {
+  _inherits(StatsWindow, _React$Component2);
+
+  function StatsWindow(props) {
+    _classCallCheck(this, StatsWindow);
+
+    return _possibleConstructorReturn(this, (StatsWindow.__proto__ || Object.getPrototypeOf(StatsWindow)).call(this, props));
+  }
+
+  _createClass(StatsWindow, [{
+    key: "render",
+    value: function render() {
+      if (!this.props.shown) {
+        return null;
+      }
+      return (
+        // this.props.shown &&
+        React.createElement(
+          "div",
+          null,
+          React.createElement(
+            "h2",
+            null,
+            " Enemies defeated:  "
+          ),
+          React.createElement(
+            "h2",
+            null,
+            " Floors cleared: "
+          ),
+          React.createElement(
+            "h2",
+            null,
+            " Time: "
+          )
+        )
+      );
+    }
+  }]);
+
+  return StatsWindow;
 }(React.Component);
 
 // This renders the JSX component inside the content node:
