@@ -20,21 +20,80 @@ var MyComponent = function (_React$Component) {
   function MyComponent() {
     _classCallCheck(this, MyComponent);
 
-    return _possibleConstructorReturn(this, (MyComponent.__proto__ || Object.getPrototypeOf(MyComponent)).call(this));
+    var _this = _possibleConstructorReturn(this, (MyComponent.__proto__ || Object.getPrototypeOf(MyComponent)).call(this));
+
+    _this.state = { game: true };
+    return _this;
   }
 
   _createClass(MyComponent, [{
+    key: "readCommand",
+    value: function readCommand(bool) {
+      console.log(document.getElementById("command").value);
+      if (document.getElementById("command").value === "attack") {
+        this.setState({ game: false });
+        document.getElementById("command").value = "";
+        console.log("Game: " + this.state.game);
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      return React.createElement(
-        "div",
-        null,
-        React.createElement(
-          "h1",
+      var _this2 = this;
+
+      if (this.state.game === true) {
+        return React.createElement(
+          "div",
           null,
-          "My View 03"
-        )
-      );
+          React.createElement("img", { src: "img/sample.jpg", alt: "Sample image", width: "960", height: "400" }),
+          "You are faced with a mighty foe in a suit! What do you do?",
+          React.createElement("br", null),
+          React.createElement("input", { type: "text", id: "command" }),
+          React.createElement("br", null),
+          React.createElement(
+            "button",
+            { type: "button", onClick: function onClick() {
+                return _this2.readCommand();
+              } },
+            "Enter Command"
+          ),
+          React.createElement(
+            "a",
+            { href: "end.html" },
+            React.createElement(
+              "button",
+              { type: "button" },
+              "Quit"
+            )
+          )
+        );
+      } else {
+        return React.createElement(
+          "div",
+          null,
+          React.createElement("img", { src: "img/boom.jpg", alt: "Bang", width: "960", height: "400" }),
+          "You have defeated the mighty foe!",
+          React.createElement("br", null),
+          React.createElement("input", { type: "text", id: "command" }),
+          React.createElement("br", null),
+          React.createElement(
+            "button",
+            { type: "button", onClick: function onClick() {
+                return _this2.readCommand();
+              } },
+            "Enter Command"
+          ),
+          React.createElement(
+            "a",
+            { href: "end.html" },
+            React.createElement(
+              "button",
+              { type: "button" },
+              "Quit"
+            )
+          )
+        );
+      }
     }
   }]);
 
