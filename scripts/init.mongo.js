@@ -1,12 +1,13 @@
 db = new Mongo().getDB('commanddb');
 db.images.remove({});
+
 db.images.insert([
  {
- src:"img/sample.jpg",
- title: 'sample_boss',
+ keyword:"talk",
+ synonym: 'talk',
  },
  {
- src: "img/boom.jpg",
- title: 'sample_boom',
+ keyword:"quit",
+ synonym: 'quit',
  },
 ]);
