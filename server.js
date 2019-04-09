@@ -26,13 +26,13 @@ app.post('/api/commanddb', (req, res) => {
     res.json(newCommand);
 });
 
-app.get('/api/issues', (req, res) => {
+app.get('/api/commanddb', (req, res) => {
     const command = {};
     if (req.query.status) command.status = req.query.status;
   
-    db.collection('keywords').find(command).then(issues => {
-      const metadata = { total_count: issues.length };
-      res.json({ _metadata: metadata, records: issues })
+    db.collection('keywords').find(command).toArray().then(issues => {
+      const metadata = { total_count: command.length };
+      res.json({ _metadata: metadata, records: command })
     }).catch(error => {
       console.log(error);
       res.status(500).json({ message: `Internal Server Error: ${error}` });
