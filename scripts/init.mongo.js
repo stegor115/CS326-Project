@@ -10,4 +10,13 @@ db.images.insert([
  keyword:"quit",
  synonym: 'quit',
  },
+ {
+ keyword: "attack",
+ synonyms: ["punch", "body slam", "charge", "legal_self-defense_barrage"],
+ },
+ {
+ keyword: "block",
+ synonyms: ["defend", "parry"],
+ }
+
 ]);
