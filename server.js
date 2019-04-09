@@ -8,8 +8,6 @@ app.use(bodyParser.json());
 
 const MongoClient = require('mongodb').MongoClient;
 
-let db;
-
 MongoClient.connect('mongodb://localhost', { useNewUrlParser: true }).then(connection => {
   db = connection.db('commanddb');
   app.listen(3000, () => {
@@ -17,11 +15,12 @@ MongoClient.connect('mongodb://localhost', { useNewUrlParser: true }).then(conne
   });
 }).catch(error => {
   console.log('ERROR:', error);
-});""
+});
 
-app.post('/api/commanddb', (req, res) => {
-    const newCommand = req.body;
+app.get('/api', (req, res) => {
+  res.json({help: "this counts as a get test"});
+});
 
-    db.push(newCommand);
-    res.json(newCommand);
+app.post('/api', (req, res) => {
+    res.json(req);
 });

@@ -1,10 +1,10 @@
 db = new Mongo().getDB('commanddb');
-db.images.remove({});
+db.commands.remove({});
 
-db.images.insert([
+db.commands.insert([
  {
- keyword:"talk",
- synonym: 'talk',
+ keyword:"menu",
+ synonym: 'menu',
  },
  {
  keyword:"quit",
@@ -12,11 +12,10 @@ db.images.insert([
  },
  {
  keyword: "attack",
- synonyms: ["punch", "body slam", "charge", "legal_self-defense_barrage"],
+ synonyms: "attack",
  },
- {
- keyword: "block",
- synonyms: ["defend", "parry"],
- }
-
 ]);
+
+db.commands.createIndex({ keyword: "menu" });
+db.commands.createIndex({ keyword: "quit" });
+db.commands.createIndex({ keyword: "attack" });

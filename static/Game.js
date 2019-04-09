@@ -28,12 +28,39 @@ var MyComponent = function (_React$Component) {
 
   _createClass(MyComponent, [{
     key: "readCommand",
-    value: function readCommand(bool) {
-      console.log(document.getElementById("command").value);
-      if (document.getElementById("command").value === "attack") {
-        this.setState({ game: false });
+    value: function readCommand() {
+      if (document.getElementById("command").value !== "") {
+        var command = document.getElementById("command").value;
+        console.log('Command: ' + command);
+
+        if (command === "test get") {
+          fetch('/api').then(function (response) {
+            return response.json();
+          }).then(function (data) {
+            console.log(data.help);
+          }).catch(function (err) {
+            console.log(err);
+          });
+        } else {
+          fetch('/api/issues', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ test: "command" })
+          }).then(function (response) {
+            return response.json();
+          }).then(function (commandResponse) {
+            console.log(commandResponse.test);
+          }).catch(function (err) {
+            alert("Error in sending data to server: " + err.message);
+          });
+        }
+
+        if (command === "attack") {
+          this.setState({ game: false });
+          console.log("Game: " + this.state.game);
+        }
+
         document.getElementById("command").value = "";
-        console.log("Game: " + this.state.game);
       }
     }
   }, {

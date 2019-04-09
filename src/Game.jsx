@@ -12,12 +12,38 @@ class MyComponent extends React.Component {
     this.state = { game: true };
   }
 
-  readCommand(bool){
-    console.log(document.getElementById("command").value);
-    if(document.getElementById("command").value === "attack"){
-      this.setState({ game: false });
-      document.getElementById("command").value = ""
-      console.log("Game: " + this.state.game);
+  readCommand(){
+    if(document.getElementById("command").value !== ""){
+      let command = document.getElementById("command").value;
+      console.log('Command: ' + command);
+      
+      if(command === "test get"){
+        fetch('/api').then(response =>
+          response.json()
+        ).then(data => {
+          console.log(data.help);
+        }).catch(err => {
+          console.log(err);
+        });
+      }else{
+        fetch('/api/issues', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({test: "command"}),
+        }).then(response => response.json()
+        ).then(commandResponse => {
+          console.log(commandResponse.test);
+        }).catch(err => {
+          alert("Error in sending data to server: " + err.message);
+        });
+      }
+
+      if(command === "attack"){
+        this.setState({ game: false });
+        console.log("Game: " + this.state.game);
+      }
+      
+      document.getElementById("command").value = "";
     }
   }
 

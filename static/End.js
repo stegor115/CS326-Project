@@ -54,7 +54,7 @@ var EndScreen = function (_React$Component) {
           ),
           React.createElement(
             "a",
-            { href: "menu.html" },
+            { href: "index.html" },
             React.createElement(
               "h2",
               null,
