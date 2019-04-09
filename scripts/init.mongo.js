@@ -1,4 +1,4 @@
-db = new Mongo().getDB('imageDatabase');
+db = new Mongo().getDB('commanddb');
 db.images.remove({});
 db.images.insert([
  {

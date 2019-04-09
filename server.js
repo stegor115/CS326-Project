@@ -6,10 +6,6 @@ const bodyParser = require('body-parser');
 app.use(express.static('static'));
 app.use(bodyParser.json());
 
-app.listen(3000, function () {
-    console.log('App started on port 3000');
-});
-
 const MongoClient = require('mongodb').MongoClient;
 
 let db;
@@ -21,4 +17,11 @@ MongoClient.connect('mongodb://localhost', { useNewUrlParser: true }).then(conne
   });
 }).catch(error => {
   console.log('ERROR:', error);
+});""
+
+app.post('/api/commanddb', (req, res) => {
+    const newCommand = req.body;
+
+    db.push(newCommand);
+    res.json(newCommand);
 });
