@@ -9,4 +9,13 @@ db.images.insert([
  src: "img/boom.jpg",
  title: 'sample_boom',
  },
+ {
+ keyword: "attack",
+ synonyms: ["punch", "body slam", "charge", "legal_self-defense_barrage"],
+ },
+ {
+ keyword: "block",
+ synonyms: ["defend", "parry"],
+ }
+
 ]);
