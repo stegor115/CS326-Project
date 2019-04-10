@@ -126,7 +126,7 @@ var MyComponent = function (_React$Component) {
           "div",
           null,
           React.createElement("img", { src: "img/post_success.png", alt: "post success", width: "960", height: "400", id: "image" }),
-          "Successfully added new command: check console.",
+          "Successfully added new command.",
           React.createElement("br", null),
           React.createElement("input", { type: "text", id: "command" }),
           React.createElement("br", null),

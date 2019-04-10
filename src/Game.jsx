@@ -76,7 +76,7 @@ class MyComponent extends React.Component {
       return (
       <div>
           <img src="img/post_success.png" alt="post success" width="960" height="400" id="image"></img>
-            Successfully added new command: check console.
+            Successfully added new command.
             <br></br>
             <input type="text" id="command"></input>
             <br></br>
