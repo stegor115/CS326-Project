@@ -30,7 +30,6 @@ app.get('/api', (req, res) => {
       db.close();
     });
   });
-  
 });
 
 app.post('/api', (req, res) => {
