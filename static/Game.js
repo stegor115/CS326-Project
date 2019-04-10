@@ -50,7 +50,6 @@ var MyComponent = function (_React$Component) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ keyword: command })
           }).then(function (commandResponse) {
-            console.log(commandResponse.test);
             _this2.setState({ game: 3 });
           }).catch(function (err) {
             alert("Error in sending data to server: " + err.message);
