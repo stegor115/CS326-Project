@@ -1,14 +1,12 @@
-# Application Name
+# UMASS ULTIMATE TEXT ADVENTURE
 
-Rename the above with the name of your application.
-
-# Overview
-
-Add an overview of your application here.
+Go on a text based adventure through UMass.
 
 # Team Members
 
-Add the team member names who are working on this application.
+Eric Tang  
+Stephen Gordon  
+Austin Trivett  
 
 # Application Initialization
 
