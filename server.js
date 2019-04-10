@@ -18,7 +18,19 @@ MongoClient.connect('mongodb://localhost', { useNewUrlParser: true }).then(conne
 });
 
 app.get('/api', (req, res) => {
-  res.json({help: "this counts as a get test"});
+  let output;
+  MongoClient.connect('mongodb://localhost', function(err, db){
+    if(err) throw err;
+    var database = db.db('commanddb');
+    database.collection("commands").findOne({}, function(err,result){
+      if (err) throw err;
+      console.log(result.keyword);
+      output = result.keyword;
+      res.json({help: output});
+      db.close();
+    });
+  });
+  
 });
 
 app.post('/api', (req, res) => {
