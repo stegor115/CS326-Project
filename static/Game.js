@@ -42,12 +42,10 @@ var MyComponent = function (_React$Component) {
             console.log(err);
           });
         } else {
-          fetch('/api/issues', {
+          fetch('/api', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ test: "command" })
-          }).then(function (response) {
-            return response.json();
+            body: JSON.stringify({ keyword: command })
           }).then(function (commandResponse) {
             console.log(commandResponse.test);
           }).catch(function (err) {

@@ -26,12 +26,11 @@ class MyComponent extends React.Component {
           console.log(err);
         });
       }else{
-        fetch('/api/issues', {
+        fetch('/api', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({test: "command"}),
-        }).then(response => response.json()
-        ).then(commandResponse => {
+          body: JSON.stringify({keyword: command})
+        }).then(commandResponse => {
           console.log(commandResponse.test);
         }).catch(err => {
           alert("Error in sending data to server: " + err.message);
