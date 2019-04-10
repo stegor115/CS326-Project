@@ -48,13 +48,9 @@ var MyComponent = function (_React$Component) {
           fetch('/api', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              send: command
-            })
-          }).then(function (response) {
-            return response.json();
-          }).then(function (text) {
-            console.log(text);
+            body: JSON.stringify({ keyword: command })
+          }).then(function (commandResponse) {
+            console.log(commandResponse.test);
           }).catch(function (err) {
             alert("Error in sending data to server: " + err.message);
           });
