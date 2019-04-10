@@ -19,13 +19,13 @@ MongoClient.connect('mongodb://localhost', { useNewUrlParser: true }).then(conne
 
 app.get('/api', (req, res) => {
   let output;
-  MongoClient.connect('mongodb://localhost', function(err, db){
+  MongoClient.connect('mongodb://localhost', { useNewUrlParser: true }, function(err, db){
     if(err) throw err;
     var database = db.db('commanddb');
-    database.collection("commands").findOne({}, function(err,result){
+    database.collection("commands").find({}).toArray(function(err,result){
       if (err) throw err;
-      console.log(result.keyword);
-      output = result.keyword;
+      console.log(result);
+      output = result;
       res.json({help: output});
       db.close();
     });
