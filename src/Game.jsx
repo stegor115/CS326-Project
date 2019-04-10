@@ -33,6 +33,7 @@ class MyComponent extends React.Component {
           body: JSON.stringify({keyword: command})
         }).then(commandResponse => {
           console.log(commandResponse.test);
+          this.setState({ game: 3 });
         }).catch(err => {
           alert("Error in sending data to server: " + err.message);
         });
@@ -64,7 +65,19 @@ class MyComponent extends React.Component {
       return (
       <div>
           <img src="img/get_success.png" alt="get success" width="960" height="400" id="image"></img>
-            You have defeated the mighty foe!
+            Successfully got data: check console.
+            <br></br>
+            <input type="text" id="command"></input>
+            <br></br>
+            <button type="button" onClick ={ () => this.readCommand()}>Enter Command</button>
+            <a href="end.html"><button type="button">Quit</button></a>
+        </div>
+      );
+    }else if(this.state.game === 3){
+      return (
+      <div>
+          <img src="img/post_success.png" alt="post success" width="960" height="400" id="image"></img>
+            Successfully added new command: check console.
             <br></br>
             <input type="text" id="command"></input>
             <br></br>

@@ -34,7 +34,6 @@ app.get('/api', (req, res) => {
 
 app.post('/api', (req, res) => {
     const something = req.body;
-    something.synonym = "frenchfry";
     console.log(something);
     db.collection('commands').insertOne(something).then(something => {
       res.json(something);
