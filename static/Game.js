@@ -147,6 +147,32 @@ var MyComponent = function (_React$Component) {
             )
           )
         );
+      } else if (this.state.game === 3) {
+        return React.createElement(
+          "div",
+          null,
+          React.createElement("img", { src: "img/post_success.png", alt: "post success", width: "960", height: "400", id: "image" }),
+          "Successfully added new command.",
+          React.createElement("br", null),
+          React.createElement("input", { type: "text", id: "command" }),
+          React.createElement("br", null),
+          React.createElement(
+            "button",
+            { type: "button", onClick: function onClick() {
+                return _this3.readCommand();
+              } },
+            "Enter Command"
+          ),
+          React.createElement(
+            "a",
+            { href: "end.html" },
+            React.createElement(
+              "button",
+              { type: "button" },
+              "Quit"
+            )
+          )
+        );
       } else {
         return React.createElement(
           "div",
