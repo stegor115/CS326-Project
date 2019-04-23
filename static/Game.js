@@ -29,59 +29,61 @@ var MyComponent = function (_React$Component) {
   _createClass(MyComponent, [{
     key: "readCommand",
     value: function readCommand() {
-      var _this2 = this;
-
       if (document.getElementById("command").value !== "") {
         var command = document.getElementById("command").value;
+        command = command.toLowerCase();
         console.log('Command: ' + command);
-
-        if (command === "test get") {
-          fetch('/api').then(function (response) {
-            return response.json();
-          }).then(function (data) {
-            _this2.setState({ game: 2 });
-            console.log(data.help);
-          }).catch(function (err) {
-            console.log(err);
-          });
-        } else {
-          fetch('/api', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ keyword: command })
-          }).then(function (commandResponse) {
-            _this2.setState({ game: 3 });
-          }).catch(function (err) {
-            alert("Error in sending data to server: " + err.message);
-          });
+        if (this.state.game === 1) {
+          if (command === "study") {
+            this.setState({ game: 2 });
+            console.log("Game: " + this.state.game);
+          } else if (command === "play") {
+            this.setState({ game: 2 });
+            console.log("Game: " + this.state.game);
+          } else if (command === "play video games") {
+            this.setState({ game: 2 });
+            console.log("Game: " + this.state.game);
+          } else {
+            console.log("Unknown command");
+          }
+        } else if (this.state.game === 2) {
+          if (command === "20" || command === "twenty") {
+            this.setState({ game: 3 });
+            console.log("Game: " + this.state.game);
+          } else {
+            console.log("Unknown command");
+          }
+        } else if (this.state.game === 3) {
+          if (command === "right" || command === "pick right" || command == "pick right coin") {
+            this.setState({ game: 4 });
+            console.log("Game: " + this.state.game);
+          } else {
+            console.log("Unknown command");
+          }
         }
-
-        if (command === "attack") {
-          this.setState({ game: 0 });
-          console.log("Game: " + this.state.game);
-        }
-
         document.getElementById("command").value = "";
       }
     }
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       if (this.state.game === 1) {
         return React.createElement(
           "div",
           null,
-          React.createElement("img", { src: "img/sample.jpg", alt: "Sample image", width: "960", height: "400", id: "image" }),
-          "You are faced with a mighty foe in a suit! What do you do?",
+          React.createElement("img", { src: "img/1_study_hall.jpg", alt: "Sample image", width: "960", height: "400", id: "image" }),
+          "You are a computer science student at UMass Amherst, about to face off against three of the toughest bosses in the department in an exam of skill and strength.",
+          React.createElement("br", null),
+          "Do you STUDY or PLAY VIDEO GAMES?",
           React.createElement("br", null),
           React.createElement("input", { type: "text", id: "command" }),
           React.createElement("br", null),
           React.createElement(
             "button",
             { type: "button", onClick: function onClick() {
-                return _this3.readCommand();
+                return _this2.readCommand();
               } },
             "Enter Command"
           ),
@@ -99,15 +101,19 @@ var MyComponent = function (_React$Component) {
         return React.createElement(
           "div",
           null,
-          React.createElement("img", { src: "img/get_success.png", alt: "get success", width: "960", height: "400", id: "image" }),
-          "Successfully got data: check console.",
+          React.createElement("img", { src: "img/2_Richards.jpg", alt: "Richards", width: "960", height: "400", id: "image" }),
+          "The day of the exam has come. You step into the exam hall and face off against your first opponent. \u201CYou may only pass if you can answer my bee question,\u201D he says.",
+          React.createElement("br", null),
+          "What is the top speed that a bee can fly in mph?",
+          React.createElement("br", null),
+          "Enter the answer or EXAMINE for more information.",
           React.createElement("br", null),
           React.createElement("input", { type: "text", id: "command" }),
           React.createElement("br", null),
           React.createElement(
             "button",
             { type: "button", onClick: function onClick() {
-                return _this3.readCommand();
+                return _this2.readCommand();
               } },
             "Enter Command"
           ),
@@ -125,15 +131,19 @@ var MyComponent = function (_React$Component) {
         return React.createElement(
           "div",
           null,
-          React.createElement("img", { src: "img/post_success.png", alt: "post success", width: "960", height: "400", id: "image" }),
-          "Successfully added new command.",
+          React.createElement("img", { src: "img/3_Marius.jpg", alt: "Oooooookaaaaaay", width: "960", height: "400", id: "image" }),
+          "The ground shakes as an Evil Mathematician appears before you. He waves his hand and summons a long line of coins.",
+          React.createElement("br", null),
+          "\"I have summoned a line of 2n coins. We will take turns picking coins and your goal is to maximize the amount of value you get. Which coin do you take first?\"",
+          React.createElement("br", null),
+          "Do you PICK LEFT COIN, PICK RIGHT COIN, or EXAMINE the line?",
           React.createElement("br", null),
           React.createElement("input", { type: "text", id: "command" }),
           React.createElement("br", null),
           React.createElement(
             "button",
             { type: "button", onClick: function onClick() {
-                return _this3.readCommand();
+                return _this2.readCommand();
               } },
             "Enter Command"
           ),
@@ -147,11 +157,11 @@ var MyComponent = function (_React$Component) {
             )
           )
         );
-      } else if (this.state.game === 3) {
+      } else if (this.state.game === 4) {
         return React.createElement(
           "div",
           null,
-          React.createElement("img", { src: "img/post_success.png", alt: "post success", width: "960", height: "400", id: "image" }),
+          React.createElement("img", { src: "img/4_Barrington.jpg", alt: "post success", width: "960", height: "400", id: "image" }),
           "Successfully added new command.",
           React.createElement("br", null),
           React.createElement("input", { type: "text", id: "command" }),
@@ -159,7 +169,85 @@ var MyComponent = function (_React$Component) {
           React.createElement(
             "button",
             { type: "button", onClick: function onClick() {
-                return _this3.readCommand();
+                return _this2.readCommand();
+              } },
+            "Enter Command"
+          ),
+          React.createElement(
+            "a",
+            { href: "end.html" },
+            React.createElement(
+              "button",
+              { type: "button" },
+              "Quit"
+            )
+          )
+        );
+      } else if (this.state.game === 5) {
+        return React.createElement(
+          "div",
+          null,
+          React.createElement("img", { src: "img/5_banquet.jpg", alt: "post success", width: "960", height: "400", id: "image" }),
+          "Successfully added new command.",
+          React.createElement("br", null),
+          React.createElement("input", { type: "text", id: "command" }),
+          React.createElement("br", null),
+          React.createElement(
+            "button",
+            { type: "button", onClick: function onClick() {
+                return _this2.readCommand();
+              } },
+            "Enter Command"
+          ),
+          React.createElement(
+            "a",
+            { href: "end.html" },
+            React.createElement(
+              "button",
+              { type: "button" },
+              "Quit"
+            )
+          )
+        );
+      } else if (this.state.game === 6) {
+        return React.createElement(
+          "div",
+          null,
+          React.createElement("img", { src: "img/6_game_over.jpg", alt: "post success", width: "960", height: "400", id: "image" }),
+          "Successfully added new command.",
+          React.createElement("br", null),
+          React.createElement("input", { type: "text", id: "command" }),
+          React.createElement("br", null),
+          React.createElement(
+            "button",
+            { type: "button", onClick: function onClick() {
+                return _this2.readCommand();
+              } },
+            "Enter Command"
+          ),
+          React.createElement(
+            "a",
+            { href: "end.html" },
+            React.createElement(
+              "button",
+              { type: "button" },
+              "Quit"
+            )
+          )
+        );
+      } else if (this.state.game === 7) {
+        return React.createElement(
+          "div",
+          null,
+          React.createElement("img", { src: "img/7_cheat.png", alt: "post success", width: "960", height: "400", id: "image" }),
+          "Successfully added new command.",
+          React.createElement("br", null),
+          React.createElement("input", { type: "text", id: "command" }),
+          React.createElement("br", null),
+          React.createElement(
+            "button",
+            { type: "button", onClick: function onClick() {
+                return _this2.readCommand();
               } },
             "Enter Command"
           ),
@@ -185,7 +273,7 @@ var MyComponent = function (_React$Component) {
           React.createElement(
             "button",
             { type: "button", onClick: function onClick() {
-                return _this3.readCommand();
+                return _this2.readCommand();
               } },
             "Enter Command"
           ),
