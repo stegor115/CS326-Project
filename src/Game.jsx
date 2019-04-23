@@ -16,27 +16,27 @@ class MyComponent extends React.Component {
     if(document.getElementById("command").value !== ""){
       var command = document.getElementById("command").value;
       console.log('Command: ' + command);
-      
-      if(command === "test get"){
-        fetch('/api').then(response =>
-          response.json()
-        ).then(data => {
-          this.setState({ game: 2 });
-          console.log(data.help);
-        }).catch(err => {
-          console.log(err);
-        });
-      }else{
-        fetch('/api', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({keyword: command})
-        }).then(commandResponse => {
-          this.setState({ game: 3 });
-        }).catch(err => {
-          alert("Error in sending data to server: " + err.message);
-        });
-      }
+      command = command.toLowerCase();
+      if(this.game.state === 4){
+        if(command === "examine"){
+
+        }
+        else if(command === "cheat"){
+
+        }
+        else if(command === "sing"){
+          
+        }
+        else if (command === "examine barrington"){
+
+        }
+        else if(command === "examine cardie"){
+
+        }
+        else if (command === "examine duncan"){
+
+        }
+    }
 
       if(command === "attack"){
         this.setState({ game: 0 });
@@ -88,7 +88,7 @@ class MyComponent extends React.Component {
         return (
         <div>
             <img src="img/4_Barrington.jpg" alt="post success" width="960" height="400" id="image"></img>
-              Successfully added new command.
+            The evil mathematician nods. “You have passed my coin question. However, there is one final challenge you must face.” 
               <br></br>
               <input type="text" id="command"></input>
               <br></br>
@@ -99,8 +99,8 @@ class MyComponent extends React.Component {
      }else if(this.state.game === 5){
         return (
         <div>
-            <img src="img/5_Banquet.jpg" alt="post success" width="960" height="400" id="image"></img>
-              Successfully added new command.
+            <img src="img/5_banquet.jpg" alt="post success" width="960" height="400" id="image"></img>
+            It was a long, arduous journey but you have overcome the trials of UMass CICS. Revel in your victory and enjoy the feast. 
               <br></br>
               <input type="text" id="command"></input>
               <br></br>
@@ -112,7 +112,8 @@ class MyComponent extends React.Component {
         return (
         <div>
             <img src="img/6_game_over.jpg" alt="post success" width="960" height="400" id="image"></img>
-              Successfully added new command.
+            You have failed. Your degree burns to ashes.
+
               <br></br>
               <input type="text" id="command"></input>
               <br></br>
