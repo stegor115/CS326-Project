@@ -28,7 +28,7 @@ class EndScreen extends React.Component {
         <div>
         <h1>E N D  C R E D I T S</h1>
         <a href="index.html"><h2>Play again?</h2></a>
-        <button onClick={this.onClick}>Want to see your stats?</button>
+        {/* <button onClick={this.onClick}>Want to see your stats?</button> */}
         <StatsWindow shown={this.state.shown}/>
         </div>
       </div>

@@ -13,6 +13,7 @@ var state = [];
 
 // This grabs the DOM element to be used to mount React components.
 var contentNode = document.getElementById("contents");
+var studied = false;
 
 var MyComponent = function (_React$Component) {
   _inherits(MyComponent, _React$Component);
@@ -36,12 +37,13 @@ var MyComponent = function (_React$Component) {
         if (this.state.game === 1) {
           if (command === "study") {
             this.setState({ game: 2 });
+            studied = true;
+            console.log(studied);
             console.log("Game: " + this.state.game);
-          } else if (command === "play") {
+          } else if (command === "play" || command === "play video games") {
             this.setState({ game: 2 });
-            console.log("Game: " + this.state.game);
-          } else if (command === "play video games") {
-            this.setState({ game: 2 });
+            studied = false;
+            console.log(studied);
             console.log("Game: " + this.state.game);
           } else {
             console.log("Unknown command");
@@ -50,16 +52,47 @@ var MyComponent = function (_React$Component) {
           if (command === "20" || command === "twenty") {
             this.setState({ game: 3 });
             console.log("Game: " + this.state.game);
+          } else if (command === "cheat") {
+            this.setState({ game: 7 });
+            console.log("Game: " + this.state.game);
           } else {
-            console.log("Unknown command");
+            this.setState({ game: 6 });
+            console.log("Game: " + this.state.game);
           }
         } else if (this.state.game === 3) {
           if (command === "right" || command === "pick right" || command == "pick right coin") {
             this.setState({ game: 4 });
             console.log("Game: " + this.state.game);
+          } else if (command === "cheat") {
+            this.setState({ game: 7 });
+            console.log("Game: " + this.state.game);
           } else {
-            console.log("Unknown command");
+            this.setState({ game: 2 });
+            console.log("Game: " + this.state.game);
           }
+        } else if (this.state.game === 4) {
+          if (command === "Statement II tells us Duncan feels most cold of all dogs, and Nina is the most resilient to cold. Cardie did not wear a coat on Monday, but Pushkin did. So by increasing critical temperature, the dogs are Nina, Cardie, Pushkin, Duncan. The two dogs not wearing coats on Friday must be Nina and Cardie. Thursday was warmer, so Cardie did not wear a coat.".toLowerCase()) {
+            this.setState({ game: 5 });
+            console.log("Game: " + this.state.game);
+          } else if (command === "cheat") {
+            this.setState({ game: 7 });
+            console.log("Game: " + this.state.game);
+          } else {
+            this.setState({ game: 2 });
+            console.log("Game: " + this.state.game);
+          }
+          // else if(command === "sing"){
+
+          // }
+          // else if (command === "examine barrington"){
+
+          // }
+          // else if(command === "examine cardie"){
+
+          // }
+          // else if (command === "examine duncan"){
+
+          // }
         }
         document.getElementById("command").value = "";
       }
@@ -162,7 +195,7 @@ var MyComponent = function (_React$Component) {
           "div",
           null,
           React.createElement("img", { src: "img/4_Barrington.jpg", alt: "post success", width: "960", height: "400", id: "image" }),
-          "Successfully added new command.",
+          "The evil mathematician nods. \u201CYou have passed my coin question. However, there is one final challenge you must face.\u201D",
           React.createElement("br", null),
           React.createElement("input", { type: "text", id: "command" }),
           React.createElement("br", null),
@@ -188,17 +221,8 @@ var MyComponent = function (_React$Component) {
           "div",
           null,
           React.createElement("img", { src: "img/5_banquet.jpg", alt: "post success", width: "960", height: "400", id: "image" }),
-          "Successfully added new command.",
+          "It was a long, arduous journey but you have overcome the trials of UMass CICS. Revel in your victory and enjoy the feast.",
           React.createElement("br", null),
-          React.createElement("input", { type: "text", id: "command" }),
-          React.createElement("br", null),
-          React.createElement(
-            "button",
-            { type: "button", onClick: function onClick() {
-                return _this2.readCommand();
-              } },
-            "Enter Command"
-          ),
           React.createElement(
             "a",
             { href: "end.html" },
@@ -214,17 +238,8 @@ var MyComponent = function (_React$Component) {
           "div",
           null,
           React.createElement("img", { src: "img/6_game_over.jpg", alt: "post success", width: "960", height: "400", id: "image" }),
-          "Successfully added new command.",
+          "You have failed. Your degree burns to ashes.",
           React.createElement("br", null),
-          React.createElement("input", { type: "text", id: "command" }),
-          React.createElement("br", null),
-          React.createElement(
-            "button",
-            { type: "button", onClick: function onClick() {
-                return _this2.readCommand();
-              } },
-            "Enter Command"
-          ),
           React.createElement(
             "a",
             { href: "end.html" },
@@ -240,17 +255,8 @@ var MyComponent = function (_React$Component) {
           "div",
           null,
           React.createElement("img", { src: "img/7_cheat.png", alt: "post success", width: "960", height: "400", id: "image" }),
-          "Successfully added new command.",
+          "The ground opens under you and you fall down an endless chasm into literal hell. The three proctors look down at you from above. They shoot lasers from their hands, eviscerating you until you are a pile of dust. A cold wind blows across the plains of hell and scatters your remains into the dark. But worst of all, you\u2019ve been reported to the Academic Dishonesty board. Such is the price to pay for your sins.",
           React.createElement("br", null),
-          React.createElement("input", { type: "text", id: "command" }),
-          React.createElement("br", null),
-          React.createElement(
-            "button",
-            { type: "button", onClick: function onClick() {
-                return _this2.readCommand();
-              } },
-            "Enter Command"
-          ),
           React.createElement(
             "a",
             { href: "end.html" },

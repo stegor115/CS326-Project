@@ -17,8 +17,8 @@ class Menu extends React.Component {
       return (
         <div>
           <a href="game.html"><h2>New Game</h2></a>
-          <a href="#"><h2>Load Game</h2></a>
-          <a href="#" onClick={ () => this.setMenu(false) }><h2>Options</h2></a>
+          {/* <a href="#"><h2>Load Game</h2></a> */}
+          {/* <a href="#" onClick={ () => this.setMenu(false) }><h2>Options</h2></a> */}
         </div>
       );
     }else{
@@ -27,7 +27,7 @@ class Menu extends React.Component {
           <h2>Options</h2>
           <p>Set your options or whatever.</p>
           <br />
-          <a href="#" onClick={ () => this.setMenu(true) }>Back to Menu</a>
+          {/* <a href="#" onClick={ () => this.setMenu(true) }>Back to Menu</a> */}
         </div>
       );
     }
