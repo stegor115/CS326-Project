@@ -52,9 +52,35 @@ class MyComponent extends React.Component {
           console.log("Unknown command");
         }
       }
+      else if(this.game.state === 4){
+        if(command === "examine"){
+
+        }
+        else if(command === "cheat"){
+
+        }
+        else if(command === "sing"){
+          
+        }
+        else if (command === "examine barrington"){
+
+        }
+        else if(command === "examine cardie"){
+
+        }
+        else if (command === "examine duncan"){
+
+        }
+    }
+
+      if(command === "attack"){
+        this.setState({ game: 0 });
+        console.log("Game: " + this.state.game);
+      }
       document.getElementById("command").value = "";
     }
   }
+
 
   render() {
     if(this.state.game === 1){
@@ -107,7 +133,7 @@ class MyComponent extends React.Component {
         return (
         <div>
             <img src="img/4_Barrington.jpg" alt="post success" width="960" height="400" id="image"></img>
-              Successfully added new command.
+            The evil mathematician nods. “You have passed my coin question. However, there is one final challenge you must face.” 
               <br></br>
               <input type="text" id="command"></input>
               <br></br>
@@ -119,7 +145,7 @@ class MyComponent extends React.Component {
         return (
         <div>
             <img src="img/5_banquet.jpg" alt="post success" width="960" height="400" id="image"></img>
-              Successfully added new command.
+            It was a long, arduous journey but you have overcome the trials of UMass CICS. Revel in your victory and enjoy the feast. 
               <br></br>
               <input type="text" id="command"></input>
               <br></br>
@@ -131,7 +157,8 @@ class MyComponent extends React.Component {
         return (
         <div>
             <img src="img/6_game_over.jpg" alt="post success" width="960" height="400" id="image"></img>
-              Successfully added new command.
+            You have failed. Your degree burns to ashes.
+
               <br></br>
               <input type="text" id="command"></input>
               <br></br>
