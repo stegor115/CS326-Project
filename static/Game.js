@@ -67,7 +67,7 @@ var MyComponent = function (_React$Component) {
             this.setState({ game: 7 });
             console.log("Game: " + this.state.game);
           } else {
-            this.setState({ game: 2 });
+            this.setState({ game: 6 });
             console.log("Game: " + this.state.game);
           }
         } else if (this.state.game === 4) {
@@ -78,7 +78,7 @@ var MyComponent = function (_React$Component) {
             this.setState({ game: 7 });
             console.log("Game: " + this.state.game);
           } else {
-            this.setState({ game: 2 });
+            this.setState({ game: 6 });
             console.log("Game: " + this.state.game);
           }
           // else if(command === "sing"){
@@ -196,6 +196,25 @@ var MyComponent = function (_React$Component) {
           null,
           React.createElement("img", { src: "img/4_Barrington.jpg", alt: "post success", width: "960", height: "400", id: "image" }),
           "The evil mathematician nods. \u201CYou have passed my coin question. However, there is one final challenge you must face.\u201D",
+          React.createElement("br", null),
+          "A light shines in through the ceiling and a godly, bearded figure descends from the heavens, arms folded over his chest and a grave look upon his face. Lightning bolts zap from his eyes and he summons two dogs.",
+          React.createElement("br", null),
+          "\u201CDuring one cold week in December, each dog in the set S = c, d, n, p = Cardie, Duncan, Nina, Pushkin went for a walk on each day in the set Y = Mon, Tue, Wed, Thu, Fri. On each day, each dog chose whether to wear a coat, based on the temperature that morning.",
+          React.createElement("br", null),
+          "Let Z be the set of integers ..., -3, -2, -1, 0, 1, 2, 3,... Let f be the function from S to Z defined so that f(x) is the \"critical temperature\" (in Celsius) for dog x: the meaning of this will come from Statement I below. Let t be the function from Y to Z defined so that t(y) is the outdoor temperature, in Celsius, on the morning of day y. Let W be the predicate defined so that W(x, y) means \"dog x wore a coat on day y\"",
+          React.createElement("br", null),
+          "Statement I: \"Any given dog, on any given day, wore a coat if and only if the outdoor temperature on that day was less than or equal to the critical temperature for that dog.",
+          React.createElement("br", null),
+          "Statement II: Duncan was the one and only dog to wear a coat on Tuesday, and Nina was the one and only dog to not wear a coat on Wednesday.",
+          React.createElement("br", null),
+          "Statement III: It is not the case that if Pushkin wore a coat on Monday and the temperature on Thursday was -16, then the temperature on Thursday was -16 and Cardie wore a coat on Monday.",
+          React.createElement("br", null),
+          "Statement IV: On Friday, the temperature was -17 and exactly two of the dogs wore coats (on Friday).",
+          React.createElement("br", null),
+          "Using Statements I, II, III, and IV, determine whether Cardie wore a coat on Thursday, and prove your answer. (You many use the alternate form of Statement III give in part (b) of this problem.) You may use English, symbols, or a combination, but make your use of quantifier proof rules clear. (Hint: There are nine total temperatures given by values of f(x) for dogs x and t(y) for days y. Use the statements to derive inequality relations among these.)\u201D",
+          React.createElement("br", null),
+          React.createElement("br", null),
+          "Type in the proof or EXAMINE.",
           React.createElement("br", null),
           React.createElement("input", { type: "text", id: "command" }),
           React.createElement("br", null),
