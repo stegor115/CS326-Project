@@ -6,6 +6,8 @@ const state = [
 // This grabs the DOM element to be used to mount React components.
 var contentNode = document.getElementById("contents");
 var studied = false;
+var examine_text = "";
+
 class MyComponent extends React.Component {
   constructor() {
     super();
@@ -19,74 +21,135 @@ class MyComponent extends React.Component {
       console.log('Command: ' + command);
       if(this.state.game === 1){
         if(command === "study"){
-          this.setState({ game: 2 });
+          examine_text = "";
           studied = true;
           console.log(studied);
+          this.setState({ game: 2 });
           console.log("Game: " + this.state.game);
         }
         else if(command === "play" || command ==="play video games"){
-          this.setState({ game: 2 });
+          examine_text = "";
           studied = false;
           console.log(studied);
+          this.setState({ game: 2 });
           console.log("Game: " + this.state.game);
         }
+        else if(command === "examine"){
+          examine_text = "Studying looks like it will be a lot of work, but it might pay off in the long run.";
+          this.setState({game : 1});
+        }
         else{
+          examine_text = "Unknown command";
+          this.setState({game : 1});
           console.log("Unknown command");
         }
       }
+
+
+
       else if(this.state.game === 2){
         if(command === "20" || command === "twenty"){
+          examine_text = "";
           this.setState({ game: 3 });
           console.log("Game: " + this.state.game);
         }
         else if(command === "cheat"){
+          examine_text = "";
           this.setState({ game: 7 });
           console.log("Game: " + this.state.game);
+        }
+        else if(command === "examine"){
+          if(studied){
+            examine_text = "Looking back to your study session, you remember pouring hours of time into various bee articles. The answer comes to you: 20.";
+          }else{
+            examine_text = "You should have studied. To your left, you see a student writing the answer but it would probably be a bad idea to CHEAT.";
+          }
+          this.setState({ game: 2 });
+        }
+        else if(command === "examine richards"){
+          examine_text = "Man in a beekeeper’s hat and a green fleece vest.";
+          this.setState({ game: 2 });
         }
         else{
           this.setState({ game: 6 });
           console.log("Game: " + this.state.game);
         }
       }
+
+
+      //STATE 3 - MARIUS
       else if(this.state.game === 3){
         if(command === "right" || command === "pick right" || command == "pick right coin"){
+          examine_text = "";
           this.setState({ game: 4 });
           console.log("Game: " + this.state.game);
         }
-        else if(command === "cheat"){
-          this.setState({ game: 7 });
-          console.log("Game: " + this.state.game);
-        }
-        else{
+        else if(command === "left" || command === "pick left" || command == "pick left coin"){
+          examine_text = "";
           this.setState({ game: 6 });
           console.log("Game: " + this.state.game);
         }
+        else if(command === "cheat" || command === "look at other student"){
+          examine_text = "";
+          this.setState({ game: 7 });
+          console.log("Game: " + this.state.game);
+        }
+        else if(command === "examine"){
+          if(studied){
+            examine_text = "You work through the algorithm in your head. The answer is the right coin.";
+          }else{
+            examine_text = "You look up and down the line of coins but can’t remember how to solve the puzzle. Behind you is another student doing the same puzzle but if you LOOK AT OTHER STUDENT you would CHEAT.";
+          }
+          this.setState({ game: 3 });
+        }
+        else if(command === "examine marius" || command === "examine mathematician" || command === "examine evil mathematician"){
+          examine_text = "A sense of foreboding comes over you. Your head is filled with terrifying images of graphs and memoization tables.";
+          this.setState({ game: 3 });
+        }
+        else{
+          examine_text = "Unknown command";
+          this.setState({game : 3});
+          console.log("Unknown command");
+        }
       }
+
+
+      //STATE 4 - BARRINGTON
       else if(this.state.game === 4){
         if(command === ("Statement II tells us Duncan feels most cold of all dogs, and Nina is the most resilient to cold. Cardie did not wear a coat on Monday, but Pushkin did. So by increasing critical temperature, the dogs are Nina, Cardie, Pushkin, Duncan. The two dogs not wearing coats on Friday must be Nina and Cardie. Thursday was warmer, so Cardie did not wear a coat.").toLowerCase()){
+          examine_text = "";
           this.setState({ game: 5 });
           console.log("Game: " + this.state.game);
         }
         else if(command === "cheat"){
+          examine_text = "";
           this.setState({ game: 7 });
           console.log("Game: " + this.state.game);
+        }
+        else if(command === "examine"){
+          if(studied){
+            examine_text = 'There is a moment of clarity and the answer comes to you: "Statement II tells us Duncan feels most cold of all dogs, and Nina is the most resilient to cold. Cardie did not wear a coat on Monday, but Pushkin did. So by increasing critical temperature, the dogs are Nina, Cardie, Pushkin, Duncan. The two dogs not wearing coats on Friday must be Nina and Cardie. Thursday was warmer, so Cardie did not wear a coat."';
+          }else{
+            examine_text = "This is a really tough one. To be honest, you probably wouldn’t have gotten this even if you studied. Attempt to CHEAT?";
+          }
+          this.setState({ game: 4 });
+        }
+        else if(command === "sing"){
+          
+        }
+        else if (command === "examine barrington"){
+          
+        }
+        else if(command === "examine cardie"){
+
+        }
+        else if (command === "examine duncan"){
+
         }
         else{
           this.setState({ game: 6 });
           console.log("Game: " + this.state.game);
         }
-        // else if(command === "sing"){
-          
-        // }
-        // else if (command === "examine barrington"){
-
-        // }
-        // else if(command === "examine cardie"){
-
-        // }
-        // else if (command === "examine duncan"){
-
-        // }
     }
       document.getElementById("command").value = "";
     }
@@ -106,6 +169,7 @@ class MyComponent extends React.Component {
             <br></br>
             <button type="button" onClick ={ () => this.readCommand()}>Enter Command</button>
             <a href="end.html"><button type="button">Quit</button></a>
+            <p>{examine_text}</p>
         </div>
       );
     }else if(this.state.game === 2){
@@ -122,6 +186,8 @@ class MyComponent extends React.Component {
             <br></br>
             <button type="button" onClick ={ () => this.readCommand()}>Enter Command</button>
             <a href="end.html"><button type="button">Quit</button></a>
+            <br></br>
+            <p>{examine_text}</p>
         </div>
       );
     }else if(this.state.game === 3){
@@ -138,6 +204,7 @@ class MyComponent extends React.Component {
             <br></br>
             <button type="button" onClick ={ () => this.readCommand()}>Enter Command</button>
             <a href="end.html"><button type="button">Quit</button></a>
+            <p>{examine_text}</p>
         </div>
       );
      }else if(this.state.game === 4){
@@ -170,6 +237,7 @@ class MyComponent extends React.Component {
               <br></br>
               <button type="button" onClick ={ () => this.readCommand()}>Enter Command</button>
               <a href="end.html"><button type="button">Quit</button></a>
+              <p>{examine_text}</p>
           </div>
         );
      }else if(this.state.game === 5){
