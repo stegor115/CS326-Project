@@ -57,7 +57,7 @@ var EndScreen = function (_React$Component) {
             null,
             React.createElement(
               "marquee",
-              { direction: "up" },
+              null,
               React.createElement(
                 "p",
                 null,
@@ -69,17 +69,7 @@ var EndScreen = function (_React$Component) {
                 React.createElement(
                   "p",
                   null,
-                  "Stephen Gordon"
-                ),
-                React.createElement(
-                  "p",
-                  null,
-                  "Austin Trivett"
-                ),
-                React.createElement(
-                  "p",
-                  null,
-                  "Eric Tang"
+                  "Stephen Gordon     Austin Trivett       Eric Tang"
                 )
               ),
               React.createElement(
