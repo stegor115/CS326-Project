@@ -61,11 +61,6 @@ var EndScreen = function (_React$Component) {
               "Play again?"
             )
           ),
-          React.createElement(
-            "button",
-            { onClick: this.onClick },
-            "Want to see your stats?"
-          ),
           React.createElement(StatsWindow, { shown: this.state.shown })
         )
       );

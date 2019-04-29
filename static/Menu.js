@@ -32,8 +32,6 @@ var Menu = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       if (this.state.menu === true) {
         return React.createElement(
           "div",
@@ -45,26 +43,6 @@ var Menu = function (_React$Component) {
               "h2",
               null,
               "New Game"
-            )
-          ),
-          React.createElement(
-            "a",
-            { href: "#" },
-            React.createElement(
-              "h2",
-              null,
-              "Load Game"
-            )
-          ),
-          React.createElement(
-            "a",
-            { href: "#", onClick: function onClick() {
-                return _this2.setMenu(false);
-              } },
-            React.createElement(
-              "h2",
-              null,
-              "Options"
             )
           )
         );
@@ -82,14 +60,7 @@ var Menu = function (_React$Component) {
             null,
             "Set your options or whatever."
           ),
-          React.createElement("br", null),
-          React.createElement(
-            "a",
-            { href: "#", onClick: function onClick() {
-                return _this2.setMenu(true);
-              } },
-            "Back to Menu"
-          )
+          React.createElement("br", null)
         );
       }
     }
