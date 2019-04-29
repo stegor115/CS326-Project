@@ -115,7 +115,7 @@ class MyComponent extends React.Component {
 
 
       //STATE 4 - BARRINGTON
-      else if(this.state.game === 4){
+      else if(this.state.game === 4 || this.state.game === 8){
         if(command === ("Statement II tells us Duncan feels most cold of all dogs, and Nina is the most resilient to cold. Cardie did not wear a coat on Monday, but Pushkin did. So by increasing critical temperature, the dogs are Nina, Cardie, Pushkin, Duncan. The two dogs not wearing coats on Friday must be Nina and Cardie. Thursday was warmer, so Cardie did not wear a coat.").toLowerCase()){
           examine_text = "";
           this.setState({ game: 5 });
@@ -132,19 +132,33 @@ class MyComponent extends React.Component {
           }else{
             examine_text = "This is a really tough one. To be honest, you probably wouldn’t have gotten this even if you studied. Attempt to CHEAT?";
           }
-          this.setState({ game: 4 });
+          if(this.state.game === 4){
+            this.setState({ game: 4 });
+          }
+          else if(this.state.game === 8){
+            this.setState({ game: 8 });
+          }
         }
-        else if(command === "sing"){
-          
+        else if(command === "sing" || command === "red wine"){
+          this.setState({ game: 8 });
         }
         else if (command === "examine barrington"){
-          
+          examine_text = "A dog lover obssessed with non-deterministic finite automata."
+          if(this.state.game === 4){
+            this.setState({ game: 4 });
+          }
+          else if(this.state.game === 8){
+            this.setState({ game: 8 });
+          }
         }
-        else if(command === "examine cardie"){
-
-        }
-        else if (command === "examine duncan"){
-
+        else if(command === "examine dogs"){
+          examine_test = "Cardie and Duncan!"
+          if(this.state.game === 4){
+            this.setState({ game: 4 });
+          }
+          else if(this.state.game === 8){
+            this.setState({ game: 8 });
+          }
         }
         else{
           this.setState({ game: 6 });
@@ -268,7 +282,43 @@ class MyComponent extends React.Component {
               <a href="end.html"><button type="button">Quit</button></a>
           </div>
         );
-    }else{
+    }
+    //Easter Egg Mode
+    else if(this.state.game === 8){
+      return (
+      <div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/EX2fjMBLL8U?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <br></br>
+          The evil mathematician nods. “You have passed my coin question. However, there is one final challenge you must face.” 
+          <br></br>
+          A light shines in through the ceiling and a godly, bearded figure descends from the heavens, arms folded over his chest and a grave look upon his face. Lightning bolts zap from his eyes and he summons two dogs.
+          <br></br>
+          “During one cold week in December, each dog in the set S = c, d, n, p = Cardie, Duncan, Nina, Pushkin went for a walk on each day in the set Y = Mon, Tue, Wed, Thu, Fri. On each day, each dog chose whether to wear a coat, based on the temperature that morning.
+          <br></br>
+          Let Z be the set of integers ..., -3, -2, -1, 0, 1, 2, 3,... Let f be the function from S to Z defined so that f(x) is the "critical temperature" (in Celsius) for dog x: the meaning of this will come from Statement I below. Let t be the function from Y to Z defined so that t(y) is the outdoor temperature, in Celsius, on the morning of day y. Let W be the predicate defined so that W(x, y) means "dog x wore a coat on day y"
+          <br></br>
+          Statement I: "Any given dog, on any given day, wore a coat if and only if the outdoor temperature on that day was less than or equal to the critical temperature for that dog.
+          <br></br>
+          Statement II: Duncan was the one and only dog to wear a coat on Tuesday, and Nina was the one and only dog to not wear a coat on Wednesday.
+          <br></br>
+          Statement III: It is not the case that if Pushkin wore a coat on Monday and the temperature on Thursday was -16, then the temperature on Thursday was -16 and Cardie wore a coat on Monday.
+          <br></br>
+          Statement IV: On Friday, the temperature was -17 and exactly two of the dogs wore coats (on Friday).
+          <br></br>
+          Using Statements I, II, III, and IV, determine whether Cardie wore a coat on Thursday, and prove your answer. (You many use the alternate form of Statement III give in part (b) of this problem.) You may use English, symbols, or a combination, but make your use of quantifier proof rules clear. (Hint: There are nine total temperatures given by values of f(x) for dogs x and t(y) for days y. Use the statements to derive inequality relations among these.)”
+          <br></br>
+          <br></br>
+          Type in the proof or EXAMINE.
+
+            <br></br>
+            <input type="text" id="command"></input>
+            <br></br>
+            <button type="button" onClick ={ () => this.readCommand()}>Enter Command</button>
+            <a href="end.html"><button type="button">Quit</button></a>
+            <p>{examine_text}</p>
+        </div>
+      );
+   }else{
       return (
       <div>
           <img src="img/boom.jpg" alt="Bang" width="960" height="400" id="image"></img>
