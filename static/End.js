@@ -53,6 +53,43 @@ var EndScreen = function (_React$Component) {
             "E N D  C R E D I T S"
           ),
           React.createElement(
+            "div",
+            null,
+            React.createElement(
+              "marquee",
+              { direction: "up" },
+              React.createElement(
+                "p",
+                null,
+                "A game made by three of the most adventurous computer science students of all time:"
+              ),
+              React.createElement(
+                "b",
+                null,
+                React.createElement(
+                  "p",
+                  null,
+                  "Stephen Gordon"
+                ),
+                React.createElement(
+                  "p",
+                  null,
+                  "Austin Trivett"
+                ),
+                React.createElement(
+                  "p",
+                  null,
+                  "Eric Tang"
+                )
+              ),
+              React.createElement(
+                "p",
+                null,
+                "The beautiful and inspiring artwork was hand crafted by Eric Tang."
+              )
+            )
+          ),
+          React.createElement(
             "a",
             { href: "index.html" },
             React.createElement(

@@ -25,12 +25,26 @@ class EndScreen extends React.Component {
   render() {
     return (
       <div>
+        
         <div>
         <h1>E N D  C R E D I T S</h1>
+        <div>
+        <marquee direction = "up">
+        <p>A game made by three of the most adventurous computer science students of all time:</p>
+        <b>
+        <p>Stephen Gordon</p>
+        <p>Austin Trivett</p>
+        <p>Eric Tang</p>
+        </b>
+        <p>The beautiful and inspiring artwork was hand crafted by Eric Tang.</p>
+        </marquee>
+        </div>
+
         <a href="index.html"><h2>Play again?</h2></a>
         {/* <button onClick={this.onClick}>Want to see your stats?</button> */}
         <StatsWindow shown={this.state.shown}/>
         </div>
+        
       </div>
     );
   }
