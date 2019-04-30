@@ -1,0 +1,21 @@
+# Project 03 Submission (Final)
+
+# Team Members
+
+Eric Tang, erictang@umass.edu
+Stephen Gordon, sgordon@umass.edu  
+Austin Trivett, atrivett@umass.edu
+
+# Project Description
+
+Our project was to make a text based adventure game in which you would face off against the ultimate bosses of the CICS dept. here at UMass.
+
+# Project 03 Extension
+
+We added more states to accodomate the paths we wrote for the game. We added dynamic text to make it so that we could offer responses to players other than switching states.
+
+# Github URL
+
+https://github.com/stegor115/CS326-Project
+
+# Video Link

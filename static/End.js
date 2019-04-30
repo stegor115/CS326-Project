@@ -56,13 +56,13 @@ var EndScreen = function (_React$Component) {
             "div",
             null,
             React.createElement(
+              "p",
+              null,
+              "A game made by three of the most adventurous computer science students of all time:"
+            ),
+            React.createElement(
               "marquee",
               null,
-              React.createElement(
-                "p",
-                null,
-                "A game made by three of the most adventurous computer science students of all time:"
-              ),
               React.createElement(
                 "b",
                 null,
@@ -71,11 +71,6 @@ var EndScreen = function (_React$Component) {
                   null,
                   "Stephen Gordon     Austin Trivett       Eric Tang"
                 )
-              ),
-              React.createElement(
-                "p",
-                null,
-                "The beautiful and inspiring artwork was hand crafted by Eric Tang."
               )
             )
           ),

@@ -37,6 +37,11 @@ var Menu = function (_React$Component) {
           "div",
           null,
           React.createElement(
+            "p",
+            null,
+            "Welcome to the CICS adventure battle arena. To play this game, you must enter a command at each game stage to advance to the next one. Can you beat the CICS marathon of pain? Prove it. Glory awaits. Be careful however, a wrong answer could end very poorly for you and your degree! "
+          ),
+          React.createElement(
             "a",
             { href: "game.html" },
             React.createElement(
@@ -44,11 +49,6 @@ var Menu = function (_React$Component) {
               null,
               "Start Game"
             )
-          ),
-          React.createElement(
-            "p",
-            null,
-            "Welcome to the CICS adventure battle arena. To play this game, you must enter a command at each game stage to advance to the next one. Can you beat the CICS marathon of pain? Prove it. Glory awaits. Be careful however, a wrong answer could end very poorly for you and your degree! "
           )
         );
       } else {

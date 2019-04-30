@@ -29,17 +29,15 @@ class EndScreen extends React.Component {
         <div>
         <h1>E N D  C R E D I T S</h1>
         <div>
-        <marquee>
         <p>A game made by three of the most adventurous computer science students of all time:</p>
+        <marquee>
         <b>
         <p>Stephen Gordon     Austin Trivett       Eric Tang</p>
         </b>
-        <p>The beautiful and inspiring artwork was hand crafted by Eric Tang.</p>
         </marquee>
         </div>
 
         <a href="index.html"><h2>Play again?</h2></a>
-        {/* <button onClick={this.onClick}>Want to see your stats?</button> */}
         <StatsWindow shown={this.state.shown}/>
         </div>
         
